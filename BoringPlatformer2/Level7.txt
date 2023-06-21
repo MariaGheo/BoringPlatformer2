@@ -1,0 +1,38 @@
+﻿Player
+x position
+y position
+Door or Moving Door
+x position
+y position
+if moving door, keep repeating x position and y position
+Obstacle
+either just write "none" or:
+x position
+y position
+speed
+vertical (false or true)
+min
+max
+Moving platform
+either just write "none" or:
+x position
+y position
+width
+height
+speed
+min
+max
+Platforms
+x position
+y position
+width
+height
+will fall (false or true)
+visible (false or true)
+x position
+y position
+width
+height
+will fall (false or true)
+visible (false or true)
+(continue repeating for as many platforms as needed)

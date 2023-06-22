@@ -29,6 +29,8 @@ namespace BoringPlatformer2
             y = _y;
             positions = _positions;
             index = 0;
+            ellipse = new Rectangle(x, y, width, 30);
+            rectangle = new Rectangle(x, y + 15, width, 30);
         }
 
         public void Move()
@@ -38,6 +40,8 @@ namespace BoringPlatformer2
                 index++;
                 x = positions[index].X;
                 y = positions[index].Y;
+                ellipse = new Rectangle(x, y, width, 30);
+                rectangle = new Rectangle(x, y + 15, width, 30);
             }
         }
     }

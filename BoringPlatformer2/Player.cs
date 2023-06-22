@@ -77,7 +77,7 @@ namespace BoringPlatformer2
 
         public bool IsOnTopOf(Platform platform)
         {
-            return rectangle.IntersectsWith(platform.edge) && y <= platform.y - width;
+            return x + width > platform.x && x < platform.x + platform.width && y == platform.y - height;
         }
 
         public bool IsAbove(Platform platform)

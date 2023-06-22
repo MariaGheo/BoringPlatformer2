@@ -24,7 +24,7 @@ namespace BoringPlatformer2
             width = _width;
             height = _height;
             //willFall = _willFall;
-            edge = new Rectangle(x, y - 1, width, 1);
+            edge = new Rectangle(x, y - 2, width, 2);
         }
 
         public Platform(int _x, int _y, int _width, int _height, int _speed, int _minX, int _maxX)

@@ -66,7 +66,8 @@ namespace BoringPlatformer2
                     }
                 }
 
-                door = new Door(Convert.ToInt32(levelData[4]), Convert.ToInt32(levelData[5]));
+                door = new Door(Convert.ToInt32(levelData[4]), Convert.ToInt32(levelData[5]), points);
+                index += 1;
             }
 
             if (levelData[index] != "none")

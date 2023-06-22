@@ -23,7 +23,6 @@ namespace BoringPlatformer2
             y = _y;
             width = _width;
             height = _height;
-            //willFall = _willFall;
             edge = new Rectangle(x, y - 2, width, 2);
         }
 
@@ -51,7 +50,15 @@ namespace BoringPlatformer2
         {
             if (fallCount != -1)
             {
-                //fall according to jump value list
+                if(y > 400)
+                {
+                    fallCount = -1;
+                }
+                else
+                {
+                    y += Form1.jumpYSpeed[8 + fallCount];
+                    fallCount++;
+                }
             }
             else if (speed != 0)
             {

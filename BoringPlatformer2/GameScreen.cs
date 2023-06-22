@@ -36,6 +36,7 @@ namespace BoringPlatformer2
             //List<String> save = Form1.saves[Form1.saveIndex];
 
             List<String> levelData = File.ReadAllLines($"Level{Form1.level}.txt").ToList();
+            //List<String> levelData = File.ReadAllLines($"Level5.txt").ToList();
 
             player = new Player(Convert.ToInt32(levelData[1]), Convert.ToInt32(levelData[2]));
 

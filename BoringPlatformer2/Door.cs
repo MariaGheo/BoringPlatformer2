@@ -33,10 +33,9 @@ namespace BoringPlatformer2
 
         public void Move()
         {
-            index++;
-
-            if(positions != null && index < positions.Count)
+            if(positions != null && index + 1 < positions.Count)
             {
+                index++;
                 x = positions[index].X;
                 y = positions[index].Y;
             }

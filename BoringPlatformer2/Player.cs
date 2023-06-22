@@ -89,9 +89,9 @@ namespace BoringPlatformer2
 
         public bool IsBelow(Platform platform)
         {
-            Rectangle abovePlatform = new Rectangle(platform.x, platform.y, platform.width, 400);
+            Rectangle belowPlatform = new Rectangle(platform.x, platform.y, platform.width, 400);
 
-            return rectangle.IntersectsWith(abovePlatform);
+            return rectangle.IntersectsWith(belowPlatform);
         }
     }
 }

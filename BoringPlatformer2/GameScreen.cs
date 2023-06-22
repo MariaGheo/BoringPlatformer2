@@ -15,6 +15,7 @@ namespace BoringPlatformer2
         int currentPlatformIndex = -1;
         List<int> belowPlatforms = new List<int>();
         Obstacle obstacle;
+        int timer;
 
         //player control variables
         bool aDown = false;
@@ -27,6 +28,10 @@ namespace BoringPlatformer2
         public GameScreen()
         {
             InitializeComponent();
+
+            timer = 0;
+
+            levelLabel.Text = $"Level {Form1.level}";
 
             //List<String> save = Form1.saves[Form1.saveIndex];
 
@@ -160,6 +165,8 @@ namespace BoringPlatformer2
 
         private void gameEngine_Tick(object sender, EventArgs e)
         {
+            timer++;
+
             foreach (Platform platform in platforms)
             {
                 platform.Move();
@@ -240,7 +247,7 @@ namespace BoringPlatformer2
             if (obstacle != null)
             {
                 obstacle.Move();
-                
+
                 if (player.IntersectsWith(obstacle))
                 {
                     EndGame(false);
@@ -257,7 +264,15 @@ namespace BoringPlatformer2
                 EndGame(true);
             }
 
+            Player futurePlayer = new Player(player.x, player.y);
+
+            futurePlayer.Move(aDown, dDown, spaceDown);
+
             //if player is going to intersect with the door in the next frame, move the door (if applicable)
+            if (futurePlayer.IntersectsWith(door))
+            {
+                door.Move();
+            }
 
             Refresh();
         }
@@ -284,6 +299,7 @@ namespace BoringPlatformer2
         public void EndGame(bool won)
         {
             gameEngine.Enabled = false;
+            Form1.gameTime += timer;
 
             if (won)
             {

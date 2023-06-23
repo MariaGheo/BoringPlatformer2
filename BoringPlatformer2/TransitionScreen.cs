@@ -19,6 +19,7 @@ namespace BoringPlatformer2
         {
             InitializeComponent();
 
+            //update labels
             state = newState;
 
             if (state == "new level")

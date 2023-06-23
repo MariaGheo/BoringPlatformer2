@@ -34,7 +34,7 @@
             this.save4Button = new System.Windows.Forms.Button();
             this.save5Button = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.subtitleLabel = new System.Windows.Forms.Label();
+            this.menuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // save1Button
@@ -113,23 +113,25 @@
             this.titleLabel.Text = "SAVES";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // subtitleLabel
+            // menuButton
             // 
-            this.subtitleLabel.Font = new System.Drawing.Font("Lucida Console", 15.75F);
-            this.subtitleLabel.ForeColor = System.Drawing.Color.White;
-            this.subtitleLabel.Location = new System.Drawing.Point(134, 335);
-            this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(527, 25);
-            this.subtitleLabel.TabIndex = 7;
-            this.subtitleLabel.Text = "Press Esc to Return to Main Menu";
-            this.subtitleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.menuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuButton.Font = new System.Drawing.Font("Lucida Console", 15.75F);
+            this.menuButton.Location = new System.Drawing.Point(281, 336);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(225, 37);
+            this.menuButton.TabIndex = 7;
+            this.menuButton.Tag = "4";
+            this.menuButton.Text = "Return To Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
             // SavesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.subtitleLabel);
+            this.Controls.Add(this.menuButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.save5Button);
             this.Controls.Add(this.save4Button);
@@ -139,7 +141,6 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "SavesScreen";
             this.Size = new System.Drawing.Size(760, 400);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.SavesScreen_PreviewKeyDown);
             this.ResumeLayout(false);
 
         }
@@ -152,6 +153,6 @@
         private System.Windows.Forms.Button save4Button;
         private System.Windows.Forms.Button save5Button;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label subtitleLabel;
+        private System.Windows.Forms.Button menuButton;
     }
 }

@@ -26,7 +26,15 @@ namespace BoringPlatformer2
             }
             else if (state == "won")
             {
-                titleLabel.Text = "You won!";
+                if (Form1.level != 6)
+                {
+                    titleLabel.Text = "Level Complete!";
+                }
+                else
+                {
+                    titleLabel.Text = "Game complete!";
+                    subtitleLabel.Text = $"Total Deaths: {Form1.deaths}\nTotal Play Time: {Form1.gameTime} seconds\nPress any button to return to main menu";
+                }
             }
             else if (state == "died")
             {
@@ -36,24 +44,30 @@ namespace BoringPlatformer2
 
         private void TransitionScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (Form1.level == 6)
             {
-                if(state == "new level")
-                {
-                    Form1.ChangeScreen(this, new GameScreen());
-                }
-                else
-                {
-                    Form1.ChangeScreen(this, new TransitionScreen("new level"));
-                }
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                Form1.saves[Form1.saveIndex][0] = Convert.ToString(Form1.level);
-                Form1.saves[Form1.saveIndex][1] = Convert.ToString(Form1.gameTime);
-                Form1.saves[Form1.saveIndex][2] = Convert.ToString(Form1.deaths);
-
+                Form1.SaveData();
                 Form1.ChangeScreen(this, new MenuScreen());
+            }
+            else
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (state == "new level")
+                    {
+                        Form1.ChangeScreen(this, new GameScreen());
+                    }
+                    else
+                    {
+                        Form1.ChangeScreen(this, new TransitionScreen("new level"));
+                    }
+                }
+                else if (e.KeyCode == Keys.Escape)
+                {
+                    Form1.SaveData();
+
+                    Form1.ChangeScreen(this, new MenuScreen());
+                }
             }
         }
     }

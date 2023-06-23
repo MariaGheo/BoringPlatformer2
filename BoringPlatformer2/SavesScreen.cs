@@ -29,18 +29,26 @@ namespace BoringPlatformer2
                 }
                 else
                 {
-                    buttons[i].Text = $"Save {i}";
+                    if (Form1.saves[i][0] != "6")
+                    {
+                        buttons[i].Text = $"Save {i + 1}: Level " + Form1.saves[i][0];
+                    }
+                    else
+                    {
+                        buttons[i].Text = $"Save {i + 1}: Game Complete";
+                    }
                 }
             }
         }
 
+        //gets variables set up for playing the selected save, and changes to GameScreen
         private void saveButton_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
 
             Form1.saveIndex = Convert.ToInt16(button.Tag);
 
-            if (Form1.saves[Form1.saveIndex][0] != "Empty")
+            if (Form1.saves[Form1.saveIndex][0] != "Empty" && Form1.saves[Form1.saveIndex][0] != "6")
             {
                 Form1.level = Convert.ToInt32(Form1.saves[Form1.saveIndex][0]);
                 Form1.gameTime = Convert.ToInt32(Form1.saves[Form1.saveIndex][1]);
@@ -56,12 +64,10 @@ namespace BoringPlatformer2
             Form1.ChangeScreen(this, new TransitionScreen("new level"));
         }
 
-        private void SavesScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        //change to menu screen
+        private void menuButton_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                Form1.ChangeScreen(this, new MenuScreen());
-            }
+            Form1.ChangeScreen(this, new MenuScreen());
         }
     }
 }

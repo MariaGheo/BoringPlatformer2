@@ -61,5 +61,11 @@ namespace BoringPlatformer2
                 saves.Add(save);
             }
         }
+
+        public static void SaveData()
+        {
+            string[] newSave = new string[] { Convert.ToString(level), Convert.ToString(gameTime), Convert.ToString(deaths) };
+            File.WriteAllLines($"Save{saveIndex + 1}.txt", newSave);
+        }
     }
 }

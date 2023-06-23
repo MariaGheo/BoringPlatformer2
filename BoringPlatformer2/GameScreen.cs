@@ -31,12 +31,10 @@ namespace BoringPlatformer2
 
             timer = 0;
 
+            //get data from level file
             levelLabel.Text = $"Level {Form1.level}";
 
-            //List<String> save = Form1.saves[Form1.saveIndex];
-
             List<String> levelData = File.ReadAllLines($"Level{Form1.level}.txt").ToList();
-            //List<String> levelData = File.ReadAllLines($"Level5.txt").ToList();
 
             player = new Player(Convert.ToInt32(levelData[1]), Convert.ToInt32(levelData[2]));
 
@@ -245,32 +243,34 @@ namespace BoringPlatformer2
                 }
             }
 
-
+            //update obstacles
             if (obstacle != null)
             {
                 obstacle.Move();
 
-                if (player.IntersectsWith(obstacle))
+                if (player.IntersectsWith(obstacle))//end game if the player hits an obstacle
                 {
                     EndGame(false);
                 }
             }
 
+            //end game if the player hits the bottom of the screen
             if (player.y + player.height >= 400)
             {
                 EndGame(false);
             }
 
+            //end game if the player touches the door
             if (player.IntersectsWith(door))
             {
                 EndGame(true);
             }
 
+            //if player is going to intersect with the door in the next frame, move the door (if applicable)
             Player futurePlayer = new Player(player.x, player.y);
 
             futurePlayer.Move(aDown, dDown, spaceDown);
 
-            //if player is going to intersect with the door in the next frame, move the door (if applicable)
             if (futurePlayer.IntersectsWith(door))
             {
                 door.Move();
@@ -300,9 +300,10 @@ namespace BoringPlatformer2
 
         public void EndGame(bool won)
         {
-            gameEngine.Enabled = false;
-            Form1.gameTime += timer;
+            gameEngine.Enabled = false; //stop game engine
+            Form1.gameTime += timer * 17 / 1000; //update total game time
 
+            //go to transition screen with appropriate title based on whether the player won or lost
             if (won)
             {
                 Form1.level++;

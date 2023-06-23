@@ -38,7 +38,7 @@
             this.subtitleLabel.ForeColor = System.Drawing.Color.White;
             this.subtitleLabel.Location = new System.Drawing.Point(173, 210);
             this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(419, 60);
+            this.subtitleLabel.Size = new System.Drawing.Size(419, 169);
             this.subtitleLabel.TabIndex = 8;
             this.subtitleLabel.Text = "Press Enter to Continue or Escape to Exit";
             this.subtitleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Media;
 
 namespace BoringPlatformer2
 {
@@ -22,10 +23,16 @@ namespace BoringPlatformer2
         {
             if (e.KeyCode == Keys.Enter)
             {
+                SoundPlayer confirmBeep = new SoundPlayer(Properties.Resources.confirmBeep);
+                confirmBeep.Play();
+
                 Form1.ChangeScreen(this, new SavesScreen());
             }
             else if (e.KeyCode == Keys.Escape)
             {
+                SoundPlayer confirmBeep = new SoundPlayer(Properties.Resources.confirmBeep);
+                confirmBeep.Play();
+
                 Application.Exit();
             }
         }

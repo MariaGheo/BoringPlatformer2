@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace BoringPlatformer2
 {
@@ -46,6 +47,9 @@ namespace BoringPlatformer2
         {
             if (Form1.level == 6)
             {
+                SoundPlayer confirmBeep = new SoundPlayer(Properties.Resources.confirmBeep);
+                confirmBeep.Play();
+
                 Form1.SaveData();
                 Form1.ChangeScreen(this, new MenuScreen());
             }
@@ -53,6 +57,9 @@ namespace BoringPlatformer2
             {
                 if (e.KeyCode == Keys.Enter)
                 {
+                    SoundPlayer confirmBeep = new SoundPlayer(Properties.Resources.confirmBeep);
+                    confirmBeep.Play();
+
                     if (state == "new level")
                     {
                         Form1.ChangeScreen(this, new GameScreen());
@@ -64,6 +71,9 @@ namespace BoringPlatformer2
                 }
                 else if (e.KeyCode == Keys.Escape)
                 {
+                    SoundPlayer confirmBeep = new SoundPlayer(Properties.Resources.confirmBeep);
+                    confirmBeep.Play();
+
                     Form1.SaveData();
 
                     Form1.ChangeScreen(this, new MenuScreen());

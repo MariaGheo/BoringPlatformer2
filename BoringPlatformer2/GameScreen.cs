@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Media;
 
 namespace BoringPlatformer2
 {
@@ -202,6 +203,9 @@ namespace BoringPlatformer2
                 {
                     if (player.IsBelow(platforms[belowPlatforms[i]]))
                     {
+                        SoundPlayer blip = new SoundPlayer(Properties.Resources.blip);
+                        blip.Play();
+
                         player.y = platforms[belowPlatforms[i]].y - player.height;
                         player.inAir = false;
                         player.jumpCount = 0;
@@ -257,6 +261,9 @@ namespace BoringPlatformer2
             //end game if the player hits the bottom of the screen
             if (player.y + player.height >= 400)
             {
+                SoundPlayer fall = new SoundPlayer(Properties.Resources.fall);
+                fall.Play();
+
                 EndGame(false);
             }
 
@@ -306,6 +313,9 @@ namespace BoringPlatformer2
             //go to transition screen with appropriate title based on whether the player won or lost
             if (won)
             {
+                SoundPlayer winBeep = new SoundPlayer(Properties.Resources.winBeep);
+                winBeep.Play();
+
                 Form1.level++;
                 Form1.ChangeScreen(this, new TransitionScreen("won"));
             }

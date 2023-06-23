@@ -99,6 +99,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SavesScreen.resx">
       <DependentUpon>SavesScreen.cs</DependentUpon>
@@ -138,6 +139,8 @@
     <Content Include="LevelFormat.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\fall.wav" />
+    <None Include="Resources\jumpBoing2.wav" />
     <Content Include="Save1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace BoringPlatformer2
 {
@@ -44,6 +45,9 @@ namespace BoringPlatformer2
         //gets variables set up for playing the selected save, and changes to GameScreen
         private void saveButton_Click(object sender, EventArgs e)
         {
+            SoundPlayer confirmBeep = new SoundPlayer(Properties.Resources.confirmBeep);
+            confirmBeep.Play();
+
             Button button = (Button)sender;
 
             Form1.saveIndex = Convert.ToInt16(button.Tag);
@@ -67,6 +71,9 @@ namespace BoringPlatformer2
         //change to menu screen
         private void menuButton_Click(object sender, EventArgs e)
         {
+            SoundPlayer confirmBeep = new SoundPlayer(Properties.Resources.confirmBeep);
+            confirmBeep.Play();
+
             Form1.ChangeScreen(this, new MenuScreen());
         }
     }
